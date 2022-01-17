@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require './lib/bookmark'
 require 'sinatra/base'
 require 'sinatra/reloader'
 
@@ -12,5 +12,10 @@ class BookmarkManager < Sinatra::Base
     'Bookmark Manager'
   end
 
-  run! if app_file == $PROGRAM_NAME
+  get '/bookmarks' do
+    @bookmark = Bookmark.new.all
+    erb(:'bookmarks/index')
+  end
+
+  run! if app_file == $0
 end
