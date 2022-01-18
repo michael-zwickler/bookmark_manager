@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-01-18T15:50:34+01:00">2022-01-18T15:50:34+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-01-18T17:03:26+01:00">2022-01-18T17:03:26+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>15</b> relevant lines,
-    <span class="green"><b>15</b> lines covered</span> and
+    <b>26</b> relevant lines,
+    <span class="green"><b>26</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -73,9 +73,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#40e2c0a3966822b455919c63041d17a0c48ce7ed" class="src_link" title="spec/bookmark_spec.rb">spec/bookmark_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">8</td>
-            <td class="cell--number">5</td>
-            <td class="cell--number">5</td>
+            <td class="cell--number">17</td>
+            <td class="cell--number">11</td>
+            <td class="cell--number">11</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -95,9 +95,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#4634a8ed02dab581769435fd0deb9fe4b889eb0e" class="src_link" title="spec/features/view_bookmarks_spec.rb">spec/features/view_bookmarks_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">8</td>
-            <td class="cell--number">6</td>
-            <td class="cell--number">6</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">11</td>
+            <td class="cell--number">11</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -134,8 +134,8 @@
     
 
     <div class="t-line-summary">
-      <b>5</b> relevant lines.
-      <span class="green"><b>5</b> lines covered</span> and
+      <b>11</b> relevant lines.
+      <span class="green"><b>11</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -186,23 +186,122 @@
 
             
 
-            <code class="ruby">      expect(Bookmark.all).to include(&quot;http://www.google.com/&quot;)</code>
+            <code class="ruby">      connection = PG.connect(dbname: &#39;bookmark_manager_test&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="5">
+          <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="6">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      expect(Bookmark.all).to include(&quot;http://www.makersacademy.com/&quot;)</code>
+            <code class="ruby">      connection.exec(&quot;INSERT INTO bookmarks (url) VALUES(&#39;http://www.makersacademy.com&#39;);&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="6">
+          <li class="covered" data-hits="1" data-linenumber="7">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      connection.exec(&quot;INSERT INTO bookmarks (url) VALUES(&#39;http://www.destroyallsoftware.com&#39;);&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      connection.exec(&quot;INSERT INTO bookmarks (url) VALUES(&#39;http://www.google.com&#39;);&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="10">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      bookmarks = Bookmark.all</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="11">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="12">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(bookmarks).to include(&#39;http://www.makersacademy.com&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="13">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(bookmarks).to include(&#39;http://www.destroyallsoftware.com&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      expect(bookmarks).to include(&#39;http://www.google.com&#39;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="15">
             
             
 
@@ -213,7 +312,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="7">
+          <li class="never" data-hits="" data-linenumber="16">
             
             
 
@@ -224,7 +323,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="17">
             
             
 
@@ -372,8 +471,8 @@
     
 
     <div class="t-line-summary">
-      <b>6</b> relevant lines.
-      <span class="green"><b>6</b> lines covered</span> and
+      <b>11</b> relevant lines.
+      <span class="green"><b>11</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -413,18 +512,18 @@
 
             
 
-            <code class="ruby">    visit &#39;/bookmarks&#39;</code>
+            <code class="ruby">    connection = PG.connect(dbname: &#39;bookmark_manager_test&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="4">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="4">
+            
             
 
             
 
-            <code class="ruby">    expect(page).to have_content &quot;Here are your bookmarks:&quot;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -435,7 +534,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content &quot;http://www.google.com/&quot;</code>
+            <code class="ruby">    connection.exec(&quot;INSERT INTO bookmarks VALUES(1, &#39;http://www.makersacademy.com&#39;);&quot;)</code>
           </li>
         </div>
       
@@ -446,12 +545,100 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content &quot;http://www.makersacademy.com/&quot;</code>
+            <code class="ruby">    connection.exec(&quot;INSERT INTO bookmarks VALUES(2, &#39;http://www.destroyallsoftware.com&#39;);&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="7">
+          <li class="covered" data-hits="1" data-linenumber="7">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    connection.exec(&quot;INSERT INTO bookmarks VALUES(3, &#39;http://www.google.com&#39;);&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="9">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    visit &#39;/bookmarks&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="10">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="11">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content &quot;Here are your bookmarks:&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="12">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content &quot;http://www.makersacademy.com&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="13">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content &quot;http://www.destroyallsoftware.com&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(page).to have_content &quot;http://www.google.com&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="15">
             
             
 
@@ -462,7 +649,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="16">
             
             
 
