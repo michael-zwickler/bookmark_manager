@@ -7,6 +7,11 @@ As a user,
 So I can see all my bookmarks,
 I want to view all my stored bookmarks.
 ```
+```
+As a user,
+So I can add a bookmark,
+I want to create a new bookmark.
+```
 
 Bookmarks ==> view_all()
 
