@@ -1,7 +1,8 @@
 describe Bookmark do
-  describe "#all" do
+  describe ".all" do
     it "returns the values in the bookmarks array" do
-      expect(subject.all).to eq ["www.google.com", "makers.tech"]
+      expect(Bookmark.all).to include("http://www.google.com/")
+      expect(Bookmark.all).to include("http://www.makersacademy.com/")
     end
   end
 end
