@@ -1,10 +1,9 @@
 feature 'view all bookmarks' do
   scenario 'displays Here are your bookmarks and bookmarks' do
-    connection = PG.connect(dbname: 'bookmark_manager_test')
 
-    connection.exec("INSERT INTO bookmarks VALUES(1, 'http://www.makersacademy.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(2, 'http://www.destroyallsoftware.com');")
-    connection.exec("INSERT INTO bookmarks VALUES(3, 'http://www.google.com');")
+    Bookmark.create('http://www.makersacademy.com')
+    Bookmark.create('http://www.destroyallsoftware.com')
+    Bookmark.create('http://www.google.com')
 
     visit '/bookmarks'
     
