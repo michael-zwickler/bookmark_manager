@@ -16,10 +16,11 @@ class Bookmark
   end
 
   def self.create(title, url)
-    connect_to_db.exec("INSERT INTO bookmarks (title, url) VALUES('#{title}', '#{url}');")
+    result = connect_to_db.exec("INSERT INTO bookmarks (title, url) VALUES('#{title}', '#{url}') RETURNING id, url, title;")
+    Bookmark.new(result.first['id'], result.first['title'], result.first['url'])
   end 
 
-  def self.connect_to_db()
+  private_class_method def self.connect_to_db
     database = 'bookmark_manager'
     database += '_test' if ENV['ENVIRONMENT'] == 'test'
     return PG.connect(dbname: database)
