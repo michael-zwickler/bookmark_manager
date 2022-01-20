@@ -21,7 +21,7 @@ class Bookmark
   end 
 
   def self.delete(id)
-    result = connect_to_db.exec("DELETE FROM bookmarks WHERE id = #{id};")
+    result = connect_to_db.exec_params("DELETE FROM bookmarks WHERE id = $1;", [id])
   end
 
   private_class_method def self.connect_to_db
