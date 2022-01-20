@@ -12,7 +12,16 @@
   </head>
   <body>
     Here are your bookmarks:
-    <%= @bookmark %> 
+
+    <ul>
+      <% @bookmarks.each do |bookmark| %>
+        <li>
+          <a href="<%= bookmark.url%>">
+            <%= bookmark.title %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

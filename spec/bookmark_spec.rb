@@ -1,24 +1,20 @@
 describe Bookmark do
   describe ".all" do
-    it "returns the values in the bookmarks array" do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
+    it "returns an array of bookmarks" do
 
-      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.makersacademy.com');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+      Bookmark.create('I am the Makers Page', 'http://www.makersacademy.com')
+      Bookmark.create('I am the Destroy All Software', 'http://www.destroyallsoftware.com')
 
       bookmarks = Bookmark.all
 
-      expect(bookmarks).to include('http://www.makersacademy.com')
-      expect(bookmarks).to include('http://www.destroyallsoftware.com')
-      expect(bookmarks).to include('http://www.google.com')
+      expect(bookmarks[0].title).to eq('I am the Makers Page')
+      expect(bookmarks[1].url).to eq('http://www.destroyallsoftware.com')
     end
   end
 
   describe '.create' do
-    it 'creates a new bookmark' do
-      Bookmark.create('http://example.org')
-      expect(Bookmark.all).to include('http://example.org')
+    it 'changes the length of the return array of .all by one' do
+      expect { Bookmark.create('Test', 'http://www.test.com') }.to change { Bookmark.all.length }.by(1) 
     end
   end
 end

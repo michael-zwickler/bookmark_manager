@@ -1,25 +1,28 @@
 require 'pg'
 
 class Bookmark
-  def initialize
-    @bookmarks = ["www.google.com", "makers.tech"]
-  end
 
+  attr_reader :id, :title, :url
+
+  def initialize(id, title, url)
+    @id = id
+    @title = title
+    @url = url
+  end
+  
   def self.all
-
-    database = 'bookmark_manager'
-    database += '_test' if ENV['ENVIRONMENT'] == 'test'
-
-    connection = PG.connect(dbname: database)
-    result = connection.exec("SELECT * FROM bookmarks;")
-    result.map { |bookmark| bookmark['url'] }
+    result = connect_to_db.exec("SELECT * FROM bookmarks;")
+    result.map { |bookmark| Bookmark.new(bookmark['id'], bookmark['title'], bookmark['url']) }
   end
 
-  def self.create(url)
+  def self.create(title, url)
+    connect_to_db.exec("INSERT INTO bookmarks (title, url) VALUES('#{title}', '#{url}');")
+  end 
+
+  def self.connect_to_db()
     database = 'bookmark_manager'
     database += '_test' if ENV['ENVIRONMENT'] == 'test'
-
-    connection = PG.connect(dbname: database)
-    connection.exec("INSERT INTO bookmarks (url) VALUES('#{url}');")
+    return PG.connect(dbname: database)
   end
+
 end

@@ -6,15 +6,12 @@
           1,
           1,
           1,
-          1,
           null,
-          1,
           1,
           1,
           null,
           1,
           null,
-          1,
           1,
           1,
           null,
@@ -22,8 +19,7 @@
           null,
           1,
           1,
-          1,
-          1,
+          4,
           null,
           null,
           null
@@ -31,6 +27,7 @@
       },
       "/Users/mzwickle/Documents/Makers/Projects/Week6/bookmark_manager/spec/features/create_bookmark_spec.rb": {
         "lines": [
+          1,
           1,
           1,
           1,
@@ -73,6 +70,6 @@
         ]
       }
     },
-    "timestamp": 1642584649
+    "timestamp": 1642667607
   }
 }
