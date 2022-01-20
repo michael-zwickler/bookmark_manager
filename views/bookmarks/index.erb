@@ -19,6 +19,9 @@
           <a href="<%= bookmark.url%>">
             <%= bookmark.title %>
           </a>
+          <form method="post" action="/bookmarks/delete">
+            <button name="id_to_delete" value="<%= bookmark.id %>"> Delete <%= bookmark.id %> </button>
+          </form>
         </li>
       <% end %>
     </ul>

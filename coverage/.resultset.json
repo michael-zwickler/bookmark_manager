@@ -35,11 +35,32 @@
           1,
           null,
           null,
+          null,
+          1,
+          1,
+          null,
+          null,
           null
         ]
       },
       "/Users/mzwickle/Documents/Makers/Projects/Week6/bookmark_manager/spec/features/create_bookmark_spec.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/mzwickle/Documents/Makers/Projects/Week6/bookmark_manager/spec/features/has_delete_button_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           1,
           1,
           1,
@@ -83,6 +104,6 @@
         ]
       }
     },
-    "timestamp": 1642691478
+    "timestamp": 1642697659
   }
 }

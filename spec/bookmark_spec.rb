@@ -30,4 +30,9 @@ describe Bookmark do
       expect(bookmark.title).to eq 'Test Bookmark'
     end
   end
+
+  describe '.delete' do
+    it 'to be implemented'
+  end
+
 end

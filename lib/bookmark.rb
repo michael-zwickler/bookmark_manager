@@ -20,6 +20,10 @@ class Bookmark
     Bookmark.new(result.first['id'], result.first['title'], result.first['url'])
   end 
 
+  def self.delete(id)
+    result = connect_to_db.exec("DELETE FROM bookmarks WHERE id = #{id};")
+  end
+
   private_class_method def self.connect_to_db
     database = 'bookmark_manager'
     database += '_test' if ENV['ENVIRONMENT'] == 'test'
