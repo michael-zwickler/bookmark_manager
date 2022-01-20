@@ -16,7 +16,7 @@ class Bookmark
   end
 
   def self.create(title, url)
-    result = connect_to_db.exec("INSERT INTO bookmarks (title, url) VALUES('#{title}', '#{url}') RETURNING id, url, title;")
+    result = connect_to_db.exec_params("INSERT INTO bookmarks (title, url) VALUES($1,$2) RETURNING id, url, title;", [title, url])
     Bookmark.new(result.first['id'], result.first['title'], result.first['url'])
   end 
 
